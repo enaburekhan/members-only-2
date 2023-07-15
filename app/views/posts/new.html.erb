@@ -1,0 +1,27 @@
+<%= form_with model: @post do |form| %>
+  <div>
+    <%= form.label :author %><br>
+    <%= form.text_field :author %>
+    <% @post.errors.full_messages_for(:author).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+   <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %><br>
+    <% @post.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :user_id %><br>
+    <%= form.number_field :user_id %><br>
+  </div>
+
+   <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+  
