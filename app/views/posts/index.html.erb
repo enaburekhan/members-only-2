@@ -1,21 +1,15 @@
-<h1>Posts</h1>
 
-<ul>
-  <% @posts.each do |post| %>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to post.author, @root %>
-      </li>
-      <li>
-        <%= link_to post.body, @root %>
-      </li>
+
+
+<div>
+  <div class="card-body">
+    <% @posts.each do |post| %>
+      <% if user_signed_in? %>
+        <h3 class="card-title"><%= link_to post.author, @root %></h3>
+        <p class="card-text"><%= link_to post.body, @root %></p>
       <% else %>
-      <li>
-        <%= link_to post.body, @root %>
-      </li>
+        <p class="card-text"><%= link_to post.body, @root %></p>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
-
-<%= link_to "New Post", new_post_path %>
-<%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+  </div>
+</div>
